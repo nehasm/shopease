@@ -10,6 +10,6 @@ exports.unhandledRejection = () => process.on('unhandledRejection',err => {
     console.log(`Error:${err.message}`);
     console.log(`Shutting down the server due to the unhandled rejections`)
     server.close(() => {
-        process.exit(1);
+        process.exit(1); 
     })
 })
