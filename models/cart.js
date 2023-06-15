@@ -25,6 +25,10 @@ const cartSchema = new mongoose.Schema({
           required: true,
           unique:true
         },
+        discount : {
+          type:Number,
+          default:0
+      }
       },
     ],
     user: {

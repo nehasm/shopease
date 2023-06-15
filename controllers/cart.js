@@ -6,13 +6,14 @@ const catchAsync =  require('../middleware/catchAsyncError');
 exports.addItemToCart = catchAsync(async (req, res, next) => {
   const productId = req.query.productId;
   const cartId = req.query.id;
-  const { name, price,quantity,image } = req.body;
+  const { name, price,quantity,image,discount } = req.body;
   const cartItemObj = {
     name,
     price,
     quantity,
     image,
-    product : productId
+    product : productId,
+    discount
   }
   const cart = await Cart.findById(cartId);
     cart.cartItems.push(cartItemObj);
