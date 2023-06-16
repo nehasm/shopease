@@ -35,6 +35,16 @@ exports.addItemToCart = catchAsync(async (req, res, next) => {
       });
     });
 
+    exports.clearCart = catchAsync(async (req,res,next) => {
+      const cartId = req.query.cartId;
+      const cart = await Cart.findById(cartId);
+      cart.cartItems = [];
+      await cart.save({ validateBeforeSave: false })
+      res.status(201).json({
+        cart
+      });
+    })
+
     exports.updateCart = catchAsync(async (req, res, next) => {
       const productId = req.query.productId;
       const cartId = req.query.cartId;
