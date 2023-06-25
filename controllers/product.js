@@ -111,7 +111,7 @@ exports.addReview = catchAsync(async (req,res,next) => {
     await product.save({ validateBeforeSave: false });
   
     res.status(200).json({
-        product
+        message:"Review added sucessfully!"
     });
 })
 
