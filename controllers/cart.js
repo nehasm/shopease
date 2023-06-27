@@ -64,7 +64,6 @@ exports.addItemToCart = catchAsync(async (req, res, next) => {
       });
 
   exports.getAllCartItems = catchAsync(async (req, res, next) => {
-    return next(new ErrorHandler("Please login to get cart details"))
     const userId = req.user.id;
     if(userId.toString() === "") {
       return next(new ErrorHandler("Please login to get cart details"))
