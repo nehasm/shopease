@@ -12,7 +12,7 @@ const cart = require('./routes/cart');
 const payment = require('./routes/payment');
 const errorMiddleware = require('./middleware/error');
 
-dotenv.config({ path: "./config/config.env" });
+// dotenv.config({ path: "./config/config.env" });
 
 //bodyparser
 const corsOptions = {
