@@ -11,7 +11,6 @@ const order = require('./routes/order');
 const cart = require('./routes/cart');
 const payment = require('./routes/payment');
 const errorMiddleware = require('./middleware/error');
-const path = require('path')
 
 dotenv.config({ path: "./config/config.env" });
 
@@ -35,12 +34,6 @@ app.use('/api/v1',cart
 app.use('/api/v1',payment)
 //error middleware
 app.use(errorMiddleware)
-
-app.use(express.static(path.join(__dirname,"../shopease-fe/build")));
-
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname,"../shopease-fe/build/index.html"));
-  });
 
 
 module.exports = app;
