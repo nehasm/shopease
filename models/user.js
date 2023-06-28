@@ -34,7 +34,6 @@ const userSchema = new mongoose.Schema({
             type: mongoose.Schema.ObjectId,
             ref: "Product",
             required: true,
-            unique: true
           },
           name: {
             type: String,
