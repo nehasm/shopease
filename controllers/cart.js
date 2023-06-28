@@ -16,6 +16,10 @@ exports.addItemToCart = catchAsync(async (req, res, next) => {
     discount
   }
   const cart = await Cart.findById(cartId);
+  const ifProductAlreadyPresent = cart.cartItems.find(item=>item.product.toString() === productId.toString());
+  if(ifProductAlreadyPresent) {
+    return next(new ErrorHandler("Product already present in cart"),409);
+  }
     cart.cartItems.push(cartItemObj);
     await cart.save({ validateBeforeSave: false })
     res.status(201).json({
