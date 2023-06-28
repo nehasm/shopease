@@ -8,7 +8,9 @@ exports.sendToken = (user,status,res) => {
           Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
         ),
         httpOnly: true,
-        secure : true
+        secure : true,
+        sameSite: 'none',
+        domain: 'main--frabjous-centaur-847b52.netlify.app'
       };
     res.status(status).cookie('token',token,options).json({
         user,
