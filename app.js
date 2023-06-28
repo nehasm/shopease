@@ -16,7 +16,7 @@ const errorMiddleware = require('./middleware/error');
 
 //bodyparser
 const corsOptions = {
-    origin:'http://localhost:3000', 
+    origin:'https://main--frabjous-centaur-847b52.netlify.app', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
