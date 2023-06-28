@@ -10,10 +10,10 @@ exports.sendToken = (user,status,res) => {
         httpOnly: true,
         secure : true,
         sameSite: 'none',
-        domain: 'https://main--frabjous-centaur-847b52.netlify.app'
+        domain: 'main--frabjous-centaur-847b52.netlify.app'
       };
     res.status(status).cookie('token',token,options).json({
         user,
         token
     })
-}
+} 
