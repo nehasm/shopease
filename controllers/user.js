@@ -29,16 +29,16 @@ exports.loginUser = catchAsync( async (req,res,next) => {
 
 exports.logoutUser = catchAsync(async(req,res,next) => {
   const options = {
-    expires: new Date(0),
     httpOnly: true,
     secure : true,
     sameSite: 'none',
     domain: 'shoppease.netlify.app'
   };
-  res.status(200).cookie('token',"",options).json({
-    message: 'Logout sucessfully!'
-  })
-})
+
+  res.clearCookie('token', options).status(200).json({
+    message: 'Logout successfully!'
+  });
+});
 
 exports.forgotPassword = catchAsync(async (req, res, next) => {
     const user = await User.findOne({ email: req.body.email });
