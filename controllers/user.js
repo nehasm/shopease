@@ -29,7 +29,7 @@ exports.loginUser = catchAsync( async (req,res,next) => {
 
 exports.logoutUser = catchAsync(async(req,res,next) => {
   const options = {
-    maxAge: -1,
+    expires: new Date(0),
     httpOnly: true,
     secure : true,
     sameSite: 'none',
