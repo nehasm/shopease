@@ -28,17 +28,16 @@ exports.loginUser = catchAsync( async (req,res,next) => {
 })
 
 exports.logoutUser = catchAsync(async(req,res,next) => {
-    res.cookie('token',null,{
-        expires: new Date(Date.now()),
-        httpOnly: true,
-        secure : true,
-        sameSite: 'none',
-        domain: 'shoppease.netlify.app'
-      })
-
-    res.status(200).json({
-        message: 'Logout sucessfully!'
-    })
+  const options = {
+    expires: new Date(Date.now()),
+    httpOnly: true,
+    secure : true,
+    sameSite: 'none',
+    domain: 'shoppease.netlify.app'
+  };
+  res.status(200).cookie('token',null,options).json({
+    message: 'Logout sucessfully!'
+  })
 })
 
 exports.forgotPassword = catchAsync(async (req, res, next) => {
