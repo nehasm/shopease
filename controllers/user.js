@@ -34,7 +34,9 @@ exports.logoutUser = catchAsync(async(req,res,next) => {
     sameSite: 'none',
     domain: 'shoppease.netlify.app'
   };
-
+  // to avoid cookie cache on browser
+  res.setHeader('Cache-Control', 'no-store, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
   res.clearCookie('token', options).status(200).json({
     message: 'Logout successfully!'
   });
