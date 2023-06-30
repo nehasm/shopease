@@ -29,13 +29,13 @@ exports.loginUser = catchAsync( async (req,res,next) => {
 
 exports.logoutUser = catchAsync(async(req,res,next) => {
   const options = {
-    maxAge: 0,
+    maxAge: new Date(Date.now()),
     httpOnly: true,
     secure : true,
     sameSite: 'none',
     domain: 'shoppease.netlify.app'
   };
-  res.status(200).cookie('token',null,options).json({
+  res.status(200).cookie('token',"",options).json({
     message: 'Logout sucessfully!'
   })
 })
