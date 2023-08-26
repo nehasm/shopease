@@ -56,7 +56,7 @@ exports.addOrder = catchAsync(async (req, res, next) => {
   });
 
 
-  // get all Orders -- Admin
+  // get all Orders --- Admin
 exports.getAllOrders = catchAsync(async (req, res, next) => {
     const orders = await Order.find();
   
